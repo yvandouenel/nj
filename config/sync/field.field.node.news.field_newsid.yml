@@ -1,0 +1,23 @@
+uuid: 9a116818-a250-4e08-b653-1b3cafbe8f63
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newsid
+    - node.type.news
+id: node.news.field_newsid
+field_name: field_newsid
+entity_type: node
+bundle: news
+label: newsid
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

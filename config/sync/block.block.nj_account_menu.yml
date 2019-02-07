@@ -1,6 +1,6 @@
 uuid: 8704c640-e856-4c6c-870d-b7050980ad1a
 langcode: fr
-status: true
+status: false
 dependencies:
   config:
     - system.menu.account
@@ -13,7 +13,7 @@ _core:
 id: nj_account_menu
 theme: nj
 region: navigation
-weight: 0
+weight: -6
 provider: null
 plugin: 'system_menu_block:account'
 settings:

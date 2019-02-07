@@ -1,4 +1,4 @@
-uuid: fa7eb23a-95ae-4a46-adc1-d4317d2118a4
+uuid: fc6e10a4-7718-4d83-b902-6342283404cf
 langcode: fr
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - migrate_crealead
 _core:
-  default_config_hash: W1kO6nbcO8HqcF-rnDUPlxRABoIGUmYbaFJ6ihV8P-s
+  default_config_hash: 0UonGka4fCohTZ7iKog-5fxK8qQTpFm9C1yMxkzjBqQ
 id: import_drupal_images
 class: null
 field_plugin_method: null
@@ -19,69 +19,39 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: json
   constants:
-    source_base_path: 'http://SOURCE-SITE.COM/'
+    source_base_path: 'http://local.crealead.my'
   urls: 'http://local.crealead.my/export-articles/3333'
-  ids:
-    id:
-      type: string
-  item_selector: field_image/
+  item_selector: article
   fields:
     -
-      name: id
-      label: id
-      selector: /data/id
-    -
       name: fid
-      label: fid
-      selector: /data/attributes/fid
+      label: 'Unique Article identifier'
+      selector: fid
     -
-      name: uuid
-      label: uuid
-      selector: /data/attributes/uuid
+      name: src
+      label: 'image src'
+      selector: /field_image/src
     -
       name: filename
-      label: filename
-      selector: /data/attributes/filename
+      label: 'image name'
+      selector: filename
     -
-      name: status
-      label: status
-      selector: /data/attributes/status
-    -
-      name: timestamp
-      label: timestamp
-      selector: /data/attributes/timestamp
-    -
-      name: uid
-      label: uid
-      selector: /data/attributes/uid
-    -
-      name: uri
-      label: Uri
-      selector: /data/attributes/uri
-    -
-      name: url
-      label: Url
-      selector: /data/attributes/url
+      name: filemime
+      label: 'image mime'
+      selector: filemime
+  ids:
+    fid:
+      type: integer
 process:
   filename: filename
   filemime: filemime
-  status: status
-  created: timestamp
-  changed: timestamp
-  uid: uid
-  uuid: id
-  source_full_path:
-    plugin: concat
-    delimiter: /
-    source:
-      - constants/source_base_path
-      - url
+  uid:
+    plugin: default_value
+    default_value: 1
   uri:
     plugin: download
     source:
-      - '@source_full_path'
-      - uri
-    guzzle_options: null
+      - src
 destination:
   plugin: 'entity:file'
 migration_dependencies: {  }

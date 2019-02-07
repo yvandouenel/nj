@@ -1,0 +1,39 @@
+uuid: 0d9eb3b9-3734-4b0d-bd54-b40e6f661ab7
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.news.body
+    - field.field.node.news.field_newsid
+    - node.type.news
+  module:
+    - text
+    - user
+id: node.news.default
+targetEntityType: node
+bundle: news
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_newsid:
+    weight: 102
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

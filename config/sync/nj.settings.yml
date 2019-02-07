@@ -4,18 +4,19 @@ _core:
 favicon:
   mimetype: image/vnd.microsoft.icon
   path: ''
-  url: 'http://local.d8migrate.my/themes/contrib/bootstrap/favicon.ico'
+  url: 'http://local.d8migrate.my/themes/custom/nj/less/favicon.ico'
   use_default: true
+schemas:
+  bootstrap: 8000
+  nj: 8000
 features:
   comment_user_picture: true
   comment_user_verification: true
   favicon: true
   node_user_picture: true
 logo:
-  path: ''
+  path: themes/custom/nj/less/images/logo_nj.jpg
   url: ''
-  use_default: true
-schemas:
-  bootstrap: 8000
-  nj: 8000
-langcode: fr
+  use_default: false
+table_responsive: '-1'
+table: ''
