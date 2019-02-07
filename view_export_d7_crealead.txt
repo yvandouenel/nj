@@ -1,30 +1,32 @@
 $view = new view();
-$view->name = 'brands_export';
-$view->description = '';
-$view->tag = 'default';
-$view->base_table = 'node';
-$view->human_name = 'Export marques';
+$view->name = 'entityforms';
+$view->description = 'A list of all entityforms submissions to be as an admin report';
+$view->tag = 'entityforms';
+$view->base_table = 'entityform';
+$view->human_name = 'Entityforms';
 $view->core = 7;
 $view->api_version = '3.0';
 $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
 /* Display: Master */
 $handler = $view->new_display('default', 'Master', 'default');
-$handler->display->display_options['title'] = 'Export marques';
+$handler->display->display_options['title'] = 'List';
+$handler->display->display_options['use_ajax'] = TRUE;
 $handler->display->display_options['use_more_always'] = FALSE;
 $handler->display->display_options['use_more_text'] = 'plus';
 $handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['access']['perm'] = 'view any entityform';
 $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['query']['options']['query_comment'] = FALSE;
 $handler->display->display_options['exposed_form']['type'] = 'basic';
 $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Appliquer';
 $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Réinitialiser';
 $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Trier par';
 $handler->display->display_options['pager']['type'] = 'full';
-$handler->display->display_options['pager']['options']['items_per_page'] = '20';
+$handler->display->display_options['pager']['options']['items_per_page'] = '50';
 $handler->display->display_options['pager']['options']['offset'] = '0';
 $handler->display->display_options['pager']['options']['id'] = '0';
-$handler->display->display_options['pager']['options']['quantity'] = '9';
 $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Éléments par page';
 $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = 'Tout';
 $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Décalage';
@@ -32,182 +34,310 @@ $handler->display->display_options['pager']['options']['tags']['first'] = '« p
 $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ précédent';
 $handler->display->display_options['pager']['options']['tags']['next'] = 'suivant ›';
 $handler->display->display_options['pager']['options']['tags']['last'] = 'dernier »';
-$handler->display->display_options['style_plugin'] = 'views_json';
-$handler->display->display_options['style_options']['root_object'] = 'brand';
-$handler->display->display_options['style_options']['top_child_object'] = '';
-$handler->display->display_options['style_options']['plaintext_output'] = 0;
-$handler->display->display_options['style_options']['remove_newlines'] = 0;
-$handler->display->display_options['style_options']['jsonp_prefix'] = '';
-$handler->display->display_options['style_options']['using_views_api_mode'] = 0;
-$handler->display->display_options['style_options']['object_arrays'] = 1;
-$handler->display->display_options['style_options']['numeric_strings'] = 0;
-$handler->display->display_options['style_options']['bigint_string'] = 0;
-$handler->display->display_options['style_options']['pretty_print'] = 0;
-$handler->display->display_options['style_options']['unescaped_slashes'] = 0;
-$handler->display->display_options['style_options']['unescaped_unicode'] = 0;
-$handler->display->display_options['style_options']['char_encoding'] = array();
-/* Champ: Contenu : Nid */
-$handler->display->display_options['fields']['nid']['id'] = 'nid';
-$handler->display->display_options['fields']['nid']['table'] = 'node';
-$handler->display->display_options['fields']['nid']['field'] = 'nid';
-$handler->display->display_options['fields']['nid']['label'] = '';
-$handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['nid']['node_in_colorbox_width'] = '600';
-$handler->display->display_options['fields']['nid']['node_in_colorbox_height'] = '600';
-$handler->display->display_options['fields']['nid']['node_in_colorbox_rel'] = '';
-/* Champ: Contenu : Titre */
-$handler->display->display_options['fields']['title']['id'] = 'title';
-$handler->display->display_options['fields']['title']['table'] = 'node';
-$handler->display->display_options['fields']['title']['field'] = 'title';
-$handler->display->display_options['fields']['title']['label'] = '';
-$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-$handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '600';
-$handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '600';
-$handler->display->display_options['fields']['title']['node_in_colorbox_rel'] = '';
-/* Champ: Contenu : Body */
-$handler->display->display_options['fields']['body']['id'] = 'body';
-$handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-$handler->display->display_options['fields']['body']['field'] = 'body';
-$handler->display->display_options['fields']['body']['label'] = '';
-$handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-/* Critère de tri: Contenu : Date de publication */
+$handler->display->display_options['style_plugin'] = 'table';
+$handler->display->display_options['style_options']['columns'] = array(
+  'name' => 'name',
+  'entityform_id' => 'entityform_id',
+);
+$handler->display->display_options['style_options']['default'] = '-1';
+$handler->display->display_options['style_options']['info'] = array(
+  'name' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+  ),
+  'entityform_id' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+  ),
+);
+/* Comportement en l'absence de résultats: Global : Zone de texte */
+$handler->display->display_options['empty']['area']['id'] = 'area';
+$handler->display->display_options['empty']['area']['table'] = 'views';
+$handler->display->display_options['empty']['area']['field'] = 'area';
+$handler->display->display_options['empty']['area']['label'] = 'Empty ';
+$handler->display->display_options['empty']['area']['content'] = 'No form submissions available.';
+/* Relation: Entityform Submission : Uid */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'entityform';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+/* Champ: Bulk operations : Entityform Submission */
+$handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
+$handler->display->display_options['fields']['views_bulk_operations']['table'] = 'entityform';
+$handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
+$handler->display->display_options['fields']['views_bulk_operations']['label'] = '';
+$handler->display->display_options['fields']['views_bulk_operations']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '1';
+$handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
+$handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
+$handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
+$handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
+  'action::views_bulk_operations_delete_item' => array(
+    'selected' => 1,
+    'skip_confirmation' => 0,
+    'override_label' => 1,
+    'label' => 'Delete Submissions',
+    'postpone_processing' => 0,
+  ),
+);
+/* Champ: Utilisateur : Nom */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'users';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['relationship'] = 'uid';
+$handler->display->display_options['fields']['name']['label'] = 'Submitter';
+/* Champ: Entityform Submission : Lien */
+$handler->display->display_options['fields']['link_entityform']['id'] = 'link_entityform';
+$handler->display->display_options['fields']['link_entityform']['table'] = 'entityform';
+$handler->display->display_options['fields']['link_entityform']['field'] = 'link_entityform';
+$handler->display->display_options['fields']['link_entityform']['label'] = 'View';
+/* Champ: Entityform Submission : Edit Link */
+$handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
+$handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
+$handler->display->display_options['fields']['edit_entityform']['field'] = 'edit_entityform';
+$handler->display->display_options['fields']['edit_entityform']['label'] = 'Edit';
+/* Champ: Entityform Submission : Delete Link */
+$handler->display->display_options['fields']['delete_entityform']['id'] = 'delete_entityform';
+$handler->display->display_options['fields']['delete_entityform']['table'] = 'entityform';
+$handler->display->display_options['fields']['delete_entityform']['field'] = 'delete_entityform';
+$handler->display->display_options['fields']['delete_entityform']['label'] = 'Delete';
+$handler->display->display_options['fields']['delete_entityform']['hide_alter_empty'] = FALSE;
+/* Champ: Entityform Type : Étiquette */
+$handler->display->display_options['fields']['label_1']['id'] = 'label_1';
+$handler->display->display_options['fields']['label_1']['table'] = 'entityform_type';
+$handler->display->display_options['fields']['label_1']['field'] = 'label';
+$handler->display->display_options['fields']['label_1']['label'] = 'Form Type';
+/* Champ: Entityform Submission : Date d'envoi */
+$handler->display->display_options['fields']['created']['id'] = 'created';
+$handler->display->display_options['fields']['created']['table'] = 'entityform';
+$handler->display->display_options['fields']['created']['field'] = 'created';
+$handler->display->display_options['fields']['created']['date_format'] = 'medium';
+/* Champ: Entityform Submission : Date de modification */
+$handler->display->display_options['fields']['changed']['id'] = 'changed';
+$handler->display->display_options['fields']['changed']['table'] = 'entityform';
+$handler->display->display_options['fields']['changed']['field'] = 'changed';
+$handler->display->display_options['fields']['changed']['hide_alter_empty'] = FALSE;
+/* Critère de tri: Entityform Submission : Date d'envoi */
 $handler->display->display_options['sorts']['created']['id'] = 'created';
-$handler->display->display_options['sorts']['created']['table'] = 'node';
+$handler->display->display_options['sorts']['created']['table'] = 'entityform';
 $handler->display->display_options['sorts']['created']['field'] = 'created';
 $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-/* Critère de filtrage: Contenu : Publié */
-$handler->display->display_options['filters']['status']['id'] = 'status';
-$handler->display->display_options['filters']['status']['table'] = 'node';
-$handler->display->display_options['filters']['status']['field'] = 'status';
-$handler->display->display_options['filters']['status']['value'] = 1;
-$handler->display->display_options['filters']['status']['group'] = 1;
-$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-/* Critère de filtrage: Contenu : Type */
-$handler->display->display_options['filters']['type']['id'] = 'type';
-$handler->display->display_options['filters']['type']['table'] = 'node';
-$handler->display->display_options['filters']['type']['field'] = 'type';
-$handler->display->display_options['filters']['type']['value'] = array(
-  'brand' => 'brand',
-);
+/* Filtre contextuel: Entityform Submission : Entityform Type */
+$handler->display->display_options['arguments']['type']['id'] = 'type';
+$handler->display->display_options['arguments']['type']['table'] = 'entityform';
+$handler->display->display_options['arguments']['type']['field'] = 'type';
+$handler->display->display_options['arguments']['type']['default_action'] = 'not found';
+$handler->display->display_options['arguments']['type']['exception']['title'] = 'Tout';
+$handler->display->display_options['arguments']['type']['title_enable'] = TRUE;
+$handler->display->display_options['arguments']['type']['title'] = 'Submissions for %1';
+$handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['arguments']['type']['limit'] = '0';
+/* Critère de filtrage: Entityform Submission : Date d'envoi */
+$handler->display->display_options['filters']['created']['id'] = 'created';
+$handler->display->display_options['filters']['created']['table'] = 'entityform';
+$handler->display->display_options['filters']['created']['field'] = 'created';
+$handler->display->display_options['filters']['created']['operator'] = '>';
+$handler->display->display_options['filters']['created']['exposed'] = TRUE;
+$handler->display->display_options['filters']['created']['expose']['operator_id'] = 'created_op';
+$handler->display->display_options['filters']['created']['expose']['label'] = 'Date submitted';
+$handler->display->display_options['filters']['created']['expose']['use_operator'] = TRUE;
+$handler->display->display_options['filters']['created']['expose']['operator'] = 'created_op';
+$handler->display->display_options['filters']['created']['expose']['identifier'] = 'created';
+/* Critère de filtrage: Entityform Submission : Draft */
+$handler->display->display_options['filters']['draft']['id'] = 'draft';
+$handler->display->display_options['filters']['draft']['table'] = 'entityform';
+$handler->display->display_options['filters']['draft']['field'] = 'draft';
+$handler->display->display_options['filters']['draft']['operator'] = '!=';
+$handler->display->display_options['filters']['draft']['value']['value'] = '1';
 
-/* Display: Marque */
-$handler = $view->new_display('page', 'Marque', 'page');
-$handler->display->display_options['defaults']['arguments'] = FALSE;
-/* Filtre contextuel: Contenu : Nid */
-$handler->display->display_options['arguments']['nid']['id'] = 'nid';
-$handler->display->display_options['arguments']['nid']['table'] = 'node';
-$handler->display->display_options['arguments']['nid']['field'] = 'nid';
-$handler->display->display_options['arguments']['nid']['default_action'] = 'default';
-$handler->display->display_options['arguments']['nid']['exception']['title'] = 'Tout';
-$handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
-$handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-$handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-$handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-$handler->display->display_options['path'] = 'export-marques';
+/* Display: Page */
+$handler = $view->new_display('page', 'Page', 'entityforms_admin_page');
+$handler->display->display_options['path'] = 'entityform-submissions/submissions/%/list';
+$handler->display->display_options['menu']['type'] = 'default tab';
+$handler->display->display_options['menu']['title'] = 'List';
+$handler->display->display_options['menu']['description'] = 'View Submissions for all Entityforms';
+$handler->display->display_options['menu']['weight'] = '0';
+$handler->display->display_options['menu']['name'] = 'management';
+$handler->display->display_options['menu']['context'] = 0;
+$handler->display->display_options['tab_options']['type'] = 'normal';
+$handler->display->display_options['tab_options']['title'] = 'Submissions';
+$handler->display->display_options['tab_options']['weight'] = '0';
+$handler->display->display_options['tab_options']['name'] = 'management';
 
-/* Display: Articles */
-$handler = $view->new_display('page', 'Articles', 'page_export_article');
-$handler->display->display_options['defaults']['style_plugin'] = FALSE;
-$handler->display->display_options['style_plugin'] = 'views_json';
-$handler->display->display_options['style_options']['root_object'] = 'article';
-$handler->display->display_options['style_options']['top_child_object'] = '';
-$handler->display->display_options['style_options']['plaintext_output'] = 0;
-$handler->display->display_options['style_options']['remove_newlines'] = 0;
-$handler->display->display_options['style_options']['jsonp_prefix'] = '';
-$handler->display->display_options['style_options']['using_views_api_mode'] = 0;
-$handler->display->display_options['style_options']['object_arrays'] = 1;
-$handler->display->display_options['style_options']['numeric_strings'] = 0;
-$handler->display->display_options['style_options']['bigint_string'] = 0;
-$handler->display->display_options['style_options']['pretty_print'] = 0;
-$handler->display->display_options['style_options']['unescaped_slashes'] = 0;
-$handler->display->display_options['style_options']['unescaped_unicode'] = 0;
-$handler->display->display_options['style_options']['char_encoding'] = array();
-$handler->display->display_options['defaults']['style_options'] = FALSE;
-$handler->display->display_options['defaults']['row_plugin'] = FALSE;
-$handler->display->display_options['defaults']['row_options'] = FALSE;
+/* Display: XML Data export */
+$handler = $view->new_display('views_data_export', 'XML Data export', 'autofields_xml');
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['style_plugin'] = 'views_data_export_xml';
+$handler->display->display_options['style_options']['provide_file'] = 1;
+$handler->display->display_options['style_options']['filename'] = '%1-title_submissions_%timestamp-full.xml';
+$handler->display->display_options['style_options']['parent_sort'] = 1;
+$handler->display->display_options['style_options']['transform'] = 1;
+$handler->display->display_options['style_options']['root_node'] = 'entityforms';
+$handler->display->display_options['style_options']['item_node'] = 'entityform';
 $handler->display->display_options['defaults']['fields'] = FALSE;
-/* Champ: Contenu : Nid */
-$handler->display->display_options['fields']['nid']['id'] = 'nid';
-$handler->display->display_options['fields']['nid']['table'] = 'node';
-$handler->display->display_options['fields']['nid']['field'] = 'nid';
-$handler->display->display_options['fields']['nid']['label'] = '';
-$handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['nid']['node_in_colorbox_width'] = '600';
-$handler->display->display_options['fields']['nid']['node_in_colorbox_height'] = '600';
-$handler->display->display_options['fields']['nid']['node_in_colorbox_rel'] = '';
-/* Champ: Contenu : Titre */
-$handler->display->display_options['fields']['title']['id'] = 'title';
-$handler->display->display_options['fields']['title']['table'] = 'node';
-$handler->display->display_options['fields']['title']['field'] = 'title';
-$handler->display->display_options['fields']['title']['label'] = '';
-$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-$handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '600';
-$handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '600';
-$handler->display->display_options['fields']['title']['node_in_colorbox_rel'] = '';
-/* Champ: Contenu : Body */
-$handler->display->display_options['fields']['body']['id'] = 'body';
-$handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-$handler->display->display_options['fields']['body']['field'] = 'body';
-$handler->display->display_options['fields']['body']['label'] = '';
-$handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-/* Champ: Contenu : Marque(s) concernée(s) */
-$handler->display->display_options['fields']['field_article_related_brands']['id'] = 'field_article_related_brands';
-$handler->display->display_options['fields']['field_article_related_brands']['table'] = 'field_data_field_article_related_brands';
-$handler->display->display_options['fields']['field_article_related_brands']['field'] = 'field_article_related_brands';
-$handler->display->display_options['fields']['field_article_related_brands']['label'] = '';
-$handler->display->display_options['fields']['field_article_related_brands']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['field_article_related_brands']['settings'] = array(
-  'link' => 0,
-);
-$handler->display->display_options['fields']['field_article_related_brands']['delta_offset'] = '0';
-/* Champ: Contenu : Image */
-$handler->display->display_options['fields']['field_image']['id'] = 'field_image';
-$handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
-$handler->display->display_options['fields']['field_image']['field'] = 'field_image';
-$handler->display->display_options['fields']['field_image']['label'] = '';
-$handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-$handler->display->display_options['fields']['field_image']['settings'] = array(
-  'image_style' => '',
-  'image_link' => '',
-);
+/* Champ: Utilisateur : Nom */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'users';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['relationship'] = 'uid';
+$handler->display->display_options['fields']['name']['label'] = 'Submitter';
+/* Champ: Entityform Type : Étiquette */
+$handler->display->display_options['fields']['label_1']['id'] = 'label_1';
+$handler->display->display_options['fields']['label_1']['table'] = 'entityform_type';
+$handler->display->display_options['fields']['label_1']['field'] = 'label';
+$handler->display->display_options['fields']['label_1']['label'] = 'Form Type';
+/* Champ: Entityform Submission : Date d'envoi */
+$handler->display->display_options['fields']['created']['id'] = 'created';
+$handler->display->display_options['fields']['created']['table'] = 'entityform';
+$handler->display->display_options['fields']['created']['field'] = 'created';
+$handler->display->display_options['fields']['created']['date_format'] = 'medium';
+/* Champ: Entityform Submission : Date de modification */
+$handler->display->display_options['fields']['changed']['id'] = 'changed';
+$handler->display->display_options['fields']['changed']['table'] = 'entityform';
+$handler->display->display_options['fields']['changed']['field'] = 'changed';
+$handler->display->display_options['fields']['changed']['hide_alter_empty'] = FALSE;
 $handler->display->display_options['defaults']['arguments'] = FALSE;
-/* Filtre contextuel: Contenu : Marque(s) concernée(s) (field_article_related_brands) */
-$handler->display->display_options['arguments']['field_article_related_brands_target_id']['id'] = 'field_article_related_brands_target_id';
-$handler->display->display_options['arguments']['field_article_related_brands_target_id']['table'] = 'field_data_field_article_related_brands';
-$handler->display->display_options['arguments']['field_article_related_brands_target_id']['field'] = 'field_article_related_brands_target_id';
-$handler->display->display_options['arguments']['field_article_related_brands_target_id']['default_action'] = 'default';
-$handler->display->display_options['arguments']['field_article_related_brands_target_id']['exception']['title'] = 'Tout';
-$handler->display->display_options['arguments']['field_article_related_brands_target_id']['default_argument_type'] = 'node';
-$handler->display->display_options['arguments']['field_article_related_brands_target_id']['summary']['number_of_records'] = '0';
-$handler->display->display_options['arguments']['field_article_related_brands_target_id']['summary']['format'] = 'default_summary';
-$handler->display->display_options['arguments']['field_article_related_brands_target_id']['summary_options']['items_per_page'] = '25';
-$handler->display->display_options['defaults']['filter_groups'] = FALSE;
-$handler->display->display_options['defaults']['filters'] = FALSE;
-/* Critère de filtrage: Contenu : Publié */
-$handler->display->display_options['filters']['status']['id'] = 'status';
-$handler->display->display_options['filters']['status']['table'] = 'node';
-$handler->display->display_options['filters']['status']['field'] = 'status';
-$handler->display->display_options['filters']['status']['value'] = 1;
-$handler->display->display_options['filters']['status']['group'] = 1;
-$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-/* Critère de filtrage: Contenu : Type */
-$handler->display->display_options['filters']['type']['id'] = 'type';
-$handler->display->display_options['filters']['type']['table'] = 'node';
-$handler->display->display_options['filters']['type']['field'] = 'type';
-$handler->display->display_options['filters']['type']['value'] = array(
-  'article' => 'article',
+/* Filtre contextuel: Entityform Submission : Entityform Type */
+$handler->display->display_options['arguments']['type']['id'] = 'type';
+$handler->display->display_options['arguments']['type']['table'] = 'entityform';
+$handler->display->display_options['arguments']['type']['field'] = 'type';
+$handler->display->display_options['arguments']['type']['exception']['title'] = 'Tout';
+$handler->display->display_options['arguments']['type']['title_enable'] = TRUE;
+$handler->display->display_options['arguments']['type']['title'] = 'entityform_submissions_%1';
+$handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['arguments']['type']['limit'] = '0';
+$handler->display->display_options['path'] = 'entityform-submissions/downloads/%/xml';
+$handler->display->display_options['displays'] = array(
+  'entityforms_admin_page' => 'entityforms_admin_page',
+  'autofields_table' => 'autofields_table',
+  'block_1' => 'block_1',
+  'default' => 0,
 );
-$handler->display->display_options['path'] = 'export-articles';
-$translatables['brands_export'] = array(
+
+/* Display: CSV Data export */
+$handler = $view->new_display('views_data_export', 'CSV Data export', 'autofields_csv');
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+$handler->display->display_options['style_options']['provide_file'] = 1;
+$handler->display->display_options['style_options']['filename'] = '%1-title_submissions_%timestamp-full.csv';
+$handler->display->display_options['style_options']['parent_sort'] = 1;
+$handler->display->display_options['style_options']['quote'] = 1;
+$handler->display->display_options['style_options']['trim'] = 0;
+$handler->display->display_options['style_options']['replace_newlines'] = 0;
+$handler->display->display_options['style_options']['header'] = 1;
+$handler->display->display_options['style_options']['encoding'] = 'ASCII';
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Champ: Utilisateur : Nom */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'users';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['relationship'] = 'uid';
+$handler->display->display_options['fields']['name']['label'] = 'Submitter';
+/* Champ: Entityform Type : Étiquette */
+$handler->display->display_options['fields']['label_1']['id'] = 'label_1';
+$handler->display->display_options['fields']['label_1']['table'] = 'entityform_type';
+$handler->display->display_options['fields']['label_1']['field'] = 'label';
+$handler->display->display_options['fields']['label_1']['label'] = 'Form Type';
+/* Champ: Entityform Submission : Date d'envoi */
+$handler->display->display_options['fields']['created']['id'] = 'created';
+$handler->display->display_options['fields']['created']['table'] = 'entityform';
+$handler->display->display_options['fields']['created']['field'] = 'created';
+$handler->display->display_options['fields']['created']['date_format'] = 'medium';
+/* Champ: Entityform Submission : Date de modification */
+$handler->display->display_options['fields']['changed']['id'] = 'changed';
+$handler->display->display_options['fields']['changed']['table'] = 'entityform';
+$handler->display->display_options['fields']['changed']['field'] = 'changed';
+$handler->display->display_options['fields']['changed']['hide_alter_empty'] = FALSE;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+/* Filtre contextuel: Entityform Submission : Entityform Type */
+$handler->display->display_options['arguments']['type']['id'] = 'type';
+$handler->display->display_options['arguments']['type']['table'] = 'entityform';
+$handler->display->display_options['arguments']['type']['field'] = 'type';
+$handler->display->display_options['arguments']['type']['exception']['title'] = 'Tout';
+$handler->display->display_options['arguments']['type']['title_enable'] = TRUE;
+$handler->display->display_options['arguments']['type']['title'] = 'entityform_submissions_%1';
+$handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['arguments']['type']['limit'] = '0';
+$handler->display->display_options['path'] = 'entityform-submissions/downloads/%/csv';
+$handler->display->display_options['displays'] = array(
+  'entityforms_admin_page' => 'entityforms_admin_page',
+  'autofields_table' => 'autofields_table',
+  'default' => 0,
+);
+
+/* Display: Table */
+$handler = $view->new_display('page', 'Table', 'autofields_table');
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Champ: Bulk operations : Entityform Submission */
+$handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
+$handler->display->display_options['fields']['views_bulk_operations']['table'] = 'entityform';
+$handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
+$handler->display->display_options['fields']['views_bulk_operations']['label'] = '';
+$handler->display->display_options['fields']['views_bulk_operations']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '1';
+$handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
+$handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
+$handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
+$handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
+  'action::views_bulk_operations_delete_item' => array(
+    'selected' => 1,
+    'skip_confirmation' => 0,
+    'override_label' => 1,
+    'label' => 'Delete Submissions',
+    'postpone_processing' => 0,
+  ),
+);
+/* Champ: Utilisateur : Nom */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'users';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['relationship'] = 'uid';
+$handler->display->display_options['fields']['name']['label'] = 'Submitter';
+/* Champ: Entityform Submission : Lien */
+$handler->display->display_options['fields']['link_entityform']['id'] = 'link_entityform';
+$handler->display->display_options['fields']['link_entityform']['table'] = 'entityform';
+$handler->display->display_options['fields']['link_entityform']['field'] = 'link_entityform';
+$handler->display->display_options['fields']['link_entityform']['label'] = 'View';
+/* Champ: Entityform Type : Étiquette */
+$handler->display->display_options['fields']['label_1']['id'] = 'label_1';
+$handler->display->display_options['fields']['label_1']['table'] = 'entityform_type';
+$handler->display->display_options['fields']['label_1']['field'] = 'label';
+$handler->display->display_options['fields']['label_1']['label'] = 'Form Type';
+/* Champ: Entityform Submission : Date d'envoi */
+$handler->display->display_options['fields']['created']['id'] = 'created';
+$handler->display->display_options['fields']['created']['table'] = 'entityform';
+$handler->display->display_options['fields']['created']['field'] = 'created';
+$handler->display->display_options['fields']['created']['date_format'] = 'medium';
+/* Champ: Entityform Submission : Date de modification */
+$handler->display->display_options['fields']['changed']['id'] = 'changed';
+$handler->display->display_options['fields']['changed']['table'] = 'entityform';
+$handler->display->display_options['fields']['changed']['field'] = 'changed';
+$handler->display->display_options['fields']['changed']['hide_alter_empty'] = FALSE;
+$handler->display->display_options['path'] = 'entityform-submissions/submissions/%/table';
+$handler->display->display_options['menu']['type'] = 'tab';
+$handler->display->display_options['menu']['title'] = 'Table';
+$handler->display->display_options['menu']['description'] = 'View Submissions for all Entityforms';
+$handler->display->display_options['menu']['weight'] = '0';
+$handler->display->display_options['menu']['name'] = 'management';
+$handler->display->display_options['menu']['context'] = 0;
+$handler->display->display_options['tab_options']['weight'] = '0';
+$translatables['entityforms'] = array(
   t('Master'),
-  t('Export marques'),
+  t('List'),
   t('plus'),
   t('Appliquer'),
   t('Réinitialiser'),
@@ -221,6 +351,23 @@ $translatables['brands_export'] = array(
   t('‹ précédent'),
   t('suivant ›'),
   t('dernier »'),
-  t('Marque'),
-  t('Articles'),
+  t('Empty '),
+  t('No form submissions available.'),
+  t('User Submitting'),
+  t('- Choose an operation -'),
+  t('Delete Submissions'),
+  t('Submitter'),
+  t('View'),
+  t('Edit'),
+  t('Delete'),
+  t('Form Type'),
+  t('Date d\'envoi'),
+  t('Date de modification'),
+  t('Submissions for %1'),
+  t('Date submitted'),
+  t('Page'),
+  t('XML Data export'),
+  t('entityform_submissions_%1'),
+  t('CSV Data export'),
+  t('Table'),
 );
