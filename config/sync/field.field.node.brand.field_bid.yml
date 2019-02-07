@@ -1,0 +1,23 @@
+uuid: ebd73238-1b5a-48a6-9299-e84ac11dd6e9
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bid
+    - node.type.brand
+id: node.brand.field_bid
+field_name: field_bid
+entity_type: node
+bundle: brand
+label: bid
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

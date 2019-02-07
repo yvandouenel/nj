@@ -1,0 +1,14 @@
+uuid: 3a715e27-720e-47df-9f49-d93cecc3d62a
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Website feedback'
+recipients:
+  - y.douenel@coopernet.fr
+reply: ''
+weight: 0
+message: 'Votre message a été envoyé.'
+redirect: ''

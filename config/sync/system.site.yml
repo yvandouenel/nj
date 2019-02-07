@@ -1,0 +1,14 @@
+uuid: fbfca641-5414-4481-8f36-3b27b077300b
+name: d8migrate
+mail: y.douenel@coopernet.fr
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: fr
+default_langcode: fr
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

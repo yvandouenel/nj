@@ -1,0 +1,226 @@
+$view = new view();
+$view->name = 'brands_export';
+$view->description = '';
+$view->tag = 'default';
+$view->base_table = 'node';
+$view->human_name = 'Export marques';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'Export marques';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['use_more_text'] = 'plus';
+$handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['exposed_form']['options']['submit_button'] = 'Appliquer';
+$handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Réinitialiser';
+$handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Trier par';
+$handler->display->display_options['pager']['type'] = 'full';
+$handler->display->display_options['pager']['options']['items_per_page'] = '20';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['pager']['options']['id'] = '0';
+$handler->display->display_options['pager']['options']['quantity'] = '9';
+$handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Éléments par page';
+$handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = 'Tout';
+$handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Décalage';
+$handler->display->display_options['pager']['options']['tags']['first'] = '« premier';
+$handler->display->display_options['pager']['options']['tags']['previous'] = '‹ précédent';
+$handler->display->display_options['pager']['options']['tags']['next'] = 'suivant ›';
+$handler->display->display_options['pager']['options']['tags']['last'] = 'dernier »';
+$handler->display->display_options['style_plugin'] = 'views_json';
+$handler->display->display_options['style_options']['root_object'] = 'brand';
+$handler->display->display_options['style_options']['top_child_object'] = '';
+$handler->display->display_options['style_options']['plaintext_output'] = 0;
+$handler->display->display_options['style_options']['remove_newlines'] = 0;
+$handler->display->display_options['style_options']['jsonp_prefix'] = '';
+$handler->display->display_options['style_options']['using_views_api_mode'] = 0;
+$handler->display->display_options['style_options']['object_arrays'] = 1;
+$handler->display->display_options['style_options']['numeric_strings'] = 0;
+$handler->display->display_options['style_options']['bigint_string'] = 0;
+$handler->display->display_options['style_options']['pretty_print'] = 0;
+$handler->display->display_options['style_options']['unescaped_slashes'] = 0;
+$handler->display->display_options['style_options']['unescaped_unicode'] = 0;
+$handler->display->display_options['style_options']['char_encoding'] = array();
+/* Champ: Contenu : Nid */
+$handler->display->display_options['fields']['nid']['id'] = 'nid';
+$handler->display->display_options['fields']['nid']['table'] = 'node';
+$handler->display->display_options['fields']['nid']['field'] = 'nid';
+$handler->display->display_options['fields']['nid']['label'] = '';
+$handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['nid']['node_in_colorbox_width'] = '600';
+$handler->display->display_options['fields']['nid']['node_in_colorbox_height'] = '600';
+$handler->display->display_options['fields']['nid']['node_in_colorbox_rel'] = '';
+/* Champ: Contenu : Titre */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['label'] = '';
+$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+$handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '600';
+$handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '600';
+$handler->display->display_options['fields']['title']['node_in_colorbox_rel'] = '';
+/* Champ: Contenu : Body */
+$handler->display->display_options['fields']['body']['id'] = 'body';
+$handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+$handler->display->display_options['fields']['body']['field'] = 'body';
+$handler->display->display_options['fields']['body']['label'] = '';
+$handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+/* Critère de tri: Contenu : Date de publication */
+$handler->display->display_options['sorts']['created']['id'] = 'created';
+$handler->display->display_options['sorts']['created']['table'] = 'node';
+$handler->display->display_options['sorts']['created']['field'] = 'created';
+$handler->display->display_options['sorts']['created']['order'] = 'DESC';
+/* Critère de filtrage: Contenu : Publié */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Critère de filtrage: Contenu : Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'brand' => 'brand',
+);
+
+/* Display: Marque */
+$handler = $view->new_display('page', 'Marque', 'page');
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+/* Filtre contextuel: Contenu : Nid */
+$handler->display->display_options['arguments']['nid']['id'] = 'nid';
+$handler->display->display_options['arguments']['nid']['table'] = 'node';
+$handler->display->display_options['arguments']['nid']['field'] = 'nid';
+$handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+$handler->display->display_options['arguments']['nid']['exception']['title'] = 'Tout';
+$handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+$handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['path'] = 'export-marques';
+
+/* Display: Articles */
+$handler = $view->new_display('page', 'Articles', 'page_export_article');
+$handler->display->display_options['defaults']['style_plugin'] = FALSE;
+$handler->display->display_options['style_plugin'] = 'views_json';
+$handler->display->display_options['style_options']['root_object'] = 'article';
+$handler->display->display_options['style_options']['top_child_object'] = '';
+$handler->display->display_options['style_options']['plaintext_output'] = 0;
+$handler->display->display_options['style_options']['remove_newlines'] = 0;
+$handler->display->display_options['style_options']['jsonp_prefix'] = '';
+$handler->display->display_options['style_options']['using_views_api_mode'] = 0;
+$handler->display->display_options['style_options']['object_arrays'] = 1;
+$handler->display->display_options['style_options']['numeric_strings'] = 0;
+$handler->display->display_options['style_options']['bigint_string'] = 0;
+$handler->display->display_options['style_options']['pretty_print'] = 0;
+$handler->display->display_options['style_options']['unescaped_slashes'] = 0;
+$handler->display->display_options['style_options']['unescaped_unicode'] = 0;
+$handler->display->display_options['style_options']['char_encoding'] = array();
+$handler->display->display_options['defaults']['style_options'] = FALSE;
+$handler->display->display_options['defaults']['row_plugin'] = FALSE;
+$handler->display->display_options['defaults']['row_options'] = FALSE;
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Champ: Contenu : Nid */
+$handler->display->display_options['fields']['nid']['id'] = 'nid';
+$handler->display->display_options['fields']['nid']['table'] = 'node';
+$handler->display->display_options['fields']['nid']['field'] = 'nid';
+$handler->display->display_options['fields']['nid']['label'] = '';
+$handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['nid']['node_in_colorbox_width'] = '600';
+$handler->display->display_options['fields']['nid']['node_in_colorbox_height'] = '600';
+$handler->display->display_options['fields']['nid']['node_in_colorbox_rel'] = '';
+/* Champ: Contenu : Titre */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['label'] = '';
+$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+$handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '600';
+$handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '600';
+$handler->display->display_options['fields']['title']['node_in_colorbox_rel'] = '';
+/* Champ: Contenu : Body */
+$handler->display->display_options['fields']['body']['id'] = 'body';
+$handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+$handler->display->display_options['fields']['body']['field'] = 'body';
+$handler->display->display_options['fields']['body']['label'] = '';
+$handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+/* Champ: Contenu : Marque(s) concernée(s) */
+$handler->display->display_options['fields']['field_article_related_brands']['id'] = 'field_article_related_brands';
+$handler->display->display_options['fields']['field_article_related_brands']['table'] = 'field_data_field_article_related_brands';
+$handler->display->display_options['fields']['field_article_related_brands']['field'] = 'field_article_related_brands';
+$handler->display->display_options['fields']['field_article_related_brands']['label'] = '';
+$handler->display->display_options['fields']['field_article_related_brands']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_article_related_brands']['settings'] = array(
+  'link' => 0,
+);
+$handler->display->display_options['fields']['field_article_related_brands']['delta_offset'] = '0';
+/* Champ: Contenu : Image */
+$handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+$handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+$handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+$handler->display->display_options['fields']['field_image']['label'] = '';
+$handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+$handler->display->display_options['fields']['field_image']['settings'] = array(
+  'image_style' => '',
+  'image_link' => '',
+);
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+/* Filtre contextuel: Contenu : Marque(s) concernée(s) (field_article_related_brands) */
+$handler->display->display_options['arguments']['field_article_related_brands_target_id']['id'] = 'field_article_related_brands_target_id';
+$handler->display->display_options['arguments']['field_article_related_brands_target_id']['table'] = 'field_data_field_article_related_brands';
+$handler->display->display_options['arguments']['field_article_related_brands_target_id']['field'] = 'field_article_related_brands_target_id';
+$handler->display->display_options['arguments']['field_article_related_brands_target_id']['default_action'] = 'default';
+$handler->display->display_options['arguments']['field_article_related_brands_target_id']['exception']['title'] = 'Tout';
+$handler->display->display_options['arguments']['field_article_related_brands_target_id']['default_argument_type'] = 'node';
+$handler->display->display_options['arguments']['field_article_related_brands_target_id']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['field_article_related_brands_target_id']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['field_article_related_brands_target_id']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Critère de filtrage: Contenu : Publié */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Critère de filtrage: Contenu : Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'article' => 'article',
+);
+$handler->display->display_options['path'] = 'export-articles';
+$translatables['brands_export'] = array(
+  t('Master'),
+  t('Export marques'),
+  t('plus'),
+  t('Appliquer'),
+  t('Réinitialiser'),
+  t('Trier par'),
+  t('Asc'),
+  t('Desc'),
+  t('Éléments par page'),
+  t('Tout'),
+  t('Décalage'),
+  t('« premier'),
+  t('‹ précédent'),
+  t('suivant ›'),
+  t('dernier »'),
+  t('Marque'),
+  t('Articles'),
+);

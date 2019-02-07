@@ -1,0 +1,20 @@
+uuid: 52837d55-f646-415d-a234-04442878f732
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_bid
+field_name: field_bid
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: 57064969-ddbd-42e5-a9da-1301faf2b424
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nj
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: nj_messages
+theme: nj
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 9f9451d3-e7ed-4d1c-b254-380d782f8c36
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nj
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: nj_content
+theme: nj
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Contenu de la page principale'
+  provider: system
+  label_display: '0'
+visibility: {  }

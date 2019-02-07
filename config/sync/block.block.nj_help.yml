@@ -1,0 +1,22 @@
+uuid: 10b3ff78-27d4-4257-8273-8bfcff2c31fc
+langcode: fr
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - nj
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: nj_help
+theme: nj
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Aide
+  provider: help
+  label_display: '0'
+visibility: {  }

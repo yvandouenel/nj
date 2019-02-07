@@ -1,0 +1,59 @@
+uuid: 0f4879d5-d022-4741-9418-775eab2886e4
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - migrate_crealead
+_core:
+  default_config_hash: cPVDOmKhHJVlDezHvcP8J6KpOQpwezTcs63v48WGbzw
+id: article
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'json example'
+migration_group: crealead_d7
+label: 'JSON feed of articles'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  urls:
+    - 'http://local.crealead.my/export-articles/3333'
+  item_selector: article
+  fields:
+    -
+      name: nid
+      label: 'Unique Article identifier'
+      selector: nid
+    -
+      name: title
+      label: 'Article title'
+      selector: title
+    -
+      name: body
+      label: 'Article description'
+      selector: body
+  ids:
+    nid:
+      type: integer
+process:
+  type:
+    plugin: default_value
+    default_value: article
+  title: title
+  body/format:
+    plugin: default_value
+    default_value: full_html
+  body/value: body
+  field_bid: nid
+  sticky:
+    plugin: default_value
+    default_value: 0
+  uid:
+    plugin: default_value
+    default_value: 0
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

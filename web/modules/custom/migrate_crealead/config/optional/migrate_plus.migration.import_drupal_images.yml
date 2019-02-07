@@ -1,0 +1,62 @@
+# Migration configuration for imported images.
+id: import_drupal_images
+label: Import images from Drupal
+migration_group: crealead_d7
+migration_dependencies: {}
+dependencies:
+  enforced:
+    module:
+      - migrate_crealead
+
+destination:
+  plugin: entity:file
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  constants:
+    source_base_path: 'http://local.crealead.my'
+
+  urls: 'http://local.crealead.my/export-articles/3333'
+  item_selector: article
+  fields:
+    -
+      name: fid
+      label: 'Unique Article identifier'
+      selector: fid
+    -
+      name: src
+      label: 'image src'
+      selector: /field_image/src
+
+    -
+      name: filename
+      label: 'image name'
+      selector: filename
+
+    -
+      name: filemime
+      label: 'image mime'
+      selector: filemime
+
+  ids:
+    fid:
+      type: integer
+#/ je pense pouvoir repartir d'ici pour modifier le process : https://github.com/karens/import_drupal/blob/master/config/optional/migrate_plus.migration.import_drupal_images.yml    
+process:
+
+  filename: filename
+  filemime: filemime
+  
+  uid:
+    plugin: default_value
+    default_value: 1
+
+  uri:
+    plugin: download
+    source:
+      - src
+    
+
+      

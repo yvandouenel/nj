@@ -1,0 +1,48 @@
+uuid: 7552b73f-cbf0-4f35-90d4-84d6ec1d1849
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.brand.body
+    - field.field.node.brand.field_bid
+    - field.field.node.brand.field_subtitle
+    - node.type.brand
+  module:
+    - text
+    - user
+id: node.brand.default
+targetEntityType: node
+bundle: brand
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_bid:
+    weight: 103
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_subtitle:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
