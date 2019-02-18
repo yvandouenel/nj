@@ -15,3 +15,9 @@ framework:
     bootstrap/js/scrollspy.js: {}
     bootstrap/js/tab.js: {}
     bootstrap/js/transition.js: {}
+
+imgCrealead:
+  js:
+    js/img_from_crealead.js: {}
+  dependencies:
+      - core/jquery
