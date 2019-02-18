@@ -24,7 +24,7 @@ source:
   # track_changes: true
   # Copy the example JSON file in artifacts folder to sites/default/files folder.
   urls:
-    - 'http://local.crealead.my/export-marques/3333'
+    - 'https://www.crealead.com/export-marques/3333'
   # An xpath-like selector corresponding to the items to be imported.
   item_selector: brand
   # Under 'fields', we list the data items to be imported. The first level keys

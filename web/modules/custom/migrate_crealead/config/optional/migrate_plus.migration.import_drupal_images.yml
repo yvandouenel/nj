@@ -18,7 +18,7 @@ source:
   constants:
     source_base_path: 'http://local.crealead.my'
 
-  urls: 'http://local.crealead.my/export-articles/3333'
+  urls: 'https://www.crealead.com/export-articles/3333'
   item_selector: article
   fields:
     -

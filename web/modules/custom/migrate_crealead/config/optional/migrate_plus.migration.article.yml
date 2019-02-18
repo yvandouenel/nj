@@ -24,7 +24,7 @@ source:
   # track_changes: true
   # Copy the example JSON file in artifacts folder to sites/default/files folder.
   urls:
-    - 'http://local.crealead.my/export-articles/3333'
+    - 'https://www.crealead.com/export-articles/3333'
   # An xpath-like selector corresponding to the items to be imported.
   item_selector: article
   # Under 'fields', we list the data items to be imported. The first level keys
@@ -46,6 +46,10 @@ source:
       name: body
       label: 'Article description'
       selector: body
+    -
+      name: imagesrc
+      label: 'Article image src'
+      selector: path/src
     
   # Under 'ids', we identify source fields populated above which will uniquely
   # identify each imported item. The 'type' makes sure the migration map table
@@ -65,6 +69,7 @@ process:
     default_value: full_html
   body/value: body
   field_bid: nid
+  field_image_depuis_crealead: imagesrc
   sticky:
     plugin: default_value
     default_value: 0
