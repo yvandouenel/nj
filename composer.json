@@ -27,6 +27,7 @@
         "drupal/devel": "^1.2",
         "drupal/migrate_plus": "^4.1",
         "drupal/migrate_tools": "^4.1",
+        "drupal/views_bootstrap": "^4.1",
         "drush/drush": "^9.0.0",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
