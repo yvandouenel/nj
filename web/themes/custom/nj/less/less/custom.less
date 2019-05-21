@@ -1,0 +1,116 @@
+/* fonctions ******/
+.arrondi(@radius: 8px) {
+  border-radius: @radius;
+}
+/* Global ******************/
+body {
+  background-color: white;
+}
+img {
+  max-width: 100%;
+}
+/* En tête */
+header.navbar.container {
+  margin-bottom: 0;
+}
+/* logo et baseline */
+.logo {
+  &.navbar-btn {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  img {
+    max-width: 75%; /* 100% max de son container, en l'occurence : 3 colonnes */
+  }
+}
+
+.baseline{
+  color: @nj-gray;
+  font-size: 1.29em;
+  font-weight: bold;
+  font-style: italic;
+}
+/* Menu de commodité haut */
+.top-courtesy {
+  ul {
+    li {
+      list-style: none;
+      float: left;
+      margin-right: 20px;
+      &.last{
+        margin-right: 0;
+      }
+      &.first{
+        border: 1px solid @nj-gray;
+        .arrondi(4px);
+        a {
+          padding: 4px 20px;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+/* Menu principal */
+.dialog-off-canvas-main-canvas {
+  ul.menu {
+    > li {
+      margin-right: 20px;
+      > a {
+        border: 1px solid transparent;
+        position: relative;
+        display: block;
+        padding: 5px 30px !important;
+        &.is-active { /* a.is-active */
+          border: 1px solid @nj-red;
+          .arrondi(4px); /* Appel de la fonction "arrondi" avec un paramètre */
+          &:after {
+            background-color: @nj-red;
+          }
+        }
+        &:after {
+          /* S'il n'y avait pas le &, le navigateur comprendrait
+          que l'on veut s'adresser aux éléments à l'intérieur du lien alors
+          que l'on s'intéresse au lien en lui même. */
+          content: "";
+          display: block;
+          clear: both;
+          height: 4px;
+          width: 100%;
+          background-color: @nj-blue;
+          position: absolute;
+          bottom: -8px;
+          left: 0;
+        }
+      }
+    }
+  }
+
+}
+
+
+.glyphicon-mail {
+  &:before {
+    .glyphicon();
+    content: "\e800";
+  }
+  &:hover {
+    &:before {
+      color: @nj-red;
+    }
+  }
+}
+.glyphicon-linkedin {
+  &:before {
+    .glyphicon();
+    content: "\f30C";
+    color: @nj-red;
+    font-size: 2em;
+  }
+  &:hover {
+    &:before {
+      color: @nj-gray;
+    }
+  }
+}
