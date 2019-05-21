@@ -46,6 +46,7 @@ source:
       name: body
       label: 'Article description'
       selector: body
+      
     -
       name: imagesrc
       label: 'Article image src'
