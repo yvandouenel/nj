@@ -9,6 +9,49 @@ body {
 img {
   max-width: 100%;
 }
+h1 {
+  margin: 0;
+  text-align: center;
+}
+.button-red {
+  width: 200px;
+  height: 50px;
+  display: block;
+  font-weight: bold;
+  font-size: 1.4em;
+  margin: 20px auto;
+  background-color: @nj-red;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 10px;
+  margin-top: 30px;
+  .arrondi;
+  &:hover {
+    background-color: white;
+    color: @nj-red;
+    text-decoration: none;
+  }
+}
+.blue-transparent {
+  background-color: rgba(76, 135, 179, 0.8);
+  padding: 20px;
+
+  h2 {
+    color: white;
+    font-size: 1.58em;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+}
+.gray-transparent {
+  margin-top: 20px;
+  background-color: rgba(123, 124, 126, 0.8);
+  padding: 2px 20px 20px 20px;
+  color: white;
+  font-size: 1.2em;
+  line-height: 2em;
+}
 /* En tête */
 header.navbar.container {
   margin-bottom: 0;
@@ -24,71 +67,128 @@ header.navbar.container {
   }
 }
 
-.baseline{
+h2.baseline {
   color: @nj-gray;
   font-size: 1.29em;
   font-weight: bold;
   font-style: italic;
+  margin: 0;
+  @media screen and (max-width: @screen-md) {
+    font-size: 1em;
+    text-align: center;
+  }
 }
 /* Menu de commodité haut */
 .top-courtesy {
+
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+  margin-top: -15px;
+  @media screen and (max-width: @screen-md) {
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  @media screen and (min-width: @screen-md) {
+    float: right;
+    margin-top: 2px;
+  }
   ul {
     li {
       list-style: none;
       float: left;
       margin-right: 20px;
-      &.last{
-        margin-right: 0;
-      }
-      &.first{
+
+      &.first {
         border: 1px solid @nj-gray;
         .arrondi(4px);
+        &:hover {
+          border: 1px solid @nj-red;
+        }
         a {
           padding: 4px 20px;
           display: block;
+          &:hover {
+            color: @nj-red;
+            text-decoration: none;
+          }
         }
+      }
+      &.last {
+        margin-right: 0;
       }
     }
   }
 }
 
 /* Menu principal */
-.dialog-off-canvas-main-canvas {
-  ul.menu {
-    > li {
-      margin-right: 20px;
-      > a {
-        border: 1px solid transparent;
-        position: relative;
-        display: block;
-        padding: 5px 30px !important;
-        &.is-active { /* a.is-active */
-          border: 1px solid @nj-red;
-          .arrondi(4px); /* Appel de la fonction "arrondi" avec un paramètre */
-          &:after {
-            background-color: @nj-red;
-          }
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+  .row-nav-custom {
+    @media screen and (max-width: @screen-md) {
+      position: absolute;
+      bottom: 2px;
+      width: 100%;
+      ul.menu {
+        background-color: white;
+      }
+    }
+    #navbar-collapse {
+      margin-top: 25px;
+      margin-left: 0;
+      padding-left: 0;
+      ul.menu {
+        @media screen (max-width: @screen-md) {
+          background-color: white;
         }
-        &:after {
-          /* S'il n'y avait pas le &, le navigateur comprendrait
-          que l'on veut s'adresser aux éléments à l'intérieur du lien alors
-          que l'on s'intéresse au lien en lui même. */
-          content: "";
-          display: block;
-          clear: both;
-          height: 4px;
-          width: 100%;
-          background-color: @nj-blue;
-          position: absolute;
-          bottom: -8px;
-          left: 0;
+        > li {
+          margin-right: 20px;
+          > a {
+            border: 1px solid transparent;
+            position: relative;
+            display: block;
+            padding: 5px 30px !important;
+            &.is-active {
+              /* a.is-active */
+              @media screen and (min-width: @screen-md) {
+                border: 1px solid @nj-red;
+              }
+              .arrondi(
+                4px
+              ); /* Appel de la fonction "arrondi" avec un paramètre */
+              &:after {
+                background-color: @nj-red;
+              }
+            }
+            &:after {
+              content: "";
+              display: block;
+              clear: both;
+              height: 4px;
+              width: 100%;
+              background-color: @nj-blue;
+              position: absolute;
+              bottom: -8px;
+              left: 0;
+            }
+            &:hover {
+              &:after {
+                background-color: @nj-red;
+              }
+            }
+          }
         }
       }
     }
   }
-
 }
 
+button.navbar-toggle {
+}
+/* Fin menu principal */
 
 .glyphicon-mail {
   &:before {
