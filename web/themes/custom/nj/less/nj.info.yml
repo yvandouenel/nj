@@ -12,6 +12,8 @@ regions:
   header: 'Top Bar'
   highlighted: 'Highlighted'
   help: 'Help'
+  top_col_1: 'TopCol1'
+  top_col_2: 'TopCol2'
   content: 'Content'
   sidebar_first: 'Primary'
   sidebar_second: 'Secondary'
