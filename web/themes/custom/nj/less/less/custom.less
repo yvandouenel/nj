@@ -80,7 +80,6 @@ h2.baseline {
 }
 /* Menu de commodité haut */
 .top-courtesy {
-
   &:after {
     display: block;
     content: "";
@@ -212,5 +211,96 @@ button.navbar-toggle {
     &:before {
       color: @nj-gray;
     }
+  }
+}
+
+/* Contenu principal */
+.under-main-container {
+  background-color: #ced2d5;
+}
+
+/* Footer */
+.under-footer {
+  background-color: @nj-blue-night;
+  border: 1px solid @nj-blue-night;
+  color: white;
+  ul.menu {
+    margin-top: 10px;
+    li {
+      &.active-trail {
+        a {
+          color: black;
+          background-color: #eeeeee;
+          &:before {
+            color: @nj-red;
+          }
+        }
+      }
+      a {
+        color: white;
+        padding: 15px;
+        &:hover {
+          color: black;
+          &:before {
+            color: @nj-red;
+          }
+        }
+        &:before {
+          .glyphicon();
+          content: "\e801";
+          color: white;
+        }
+      }
+    }
+  }
+  .footer {
+    border: 0;
+    margin-top: 0;
+    padding-top: 20px;
+    h2.block-title {
+      font-size: 1.2em;
+      margin-top: 0;
+      border-bottom: 3px solid @nj-red;
+      padding: 15px;
+      background-color: transparent;
+      color: white;
+      padding-left: 0;
+    }
+  }
+}
+/* Lises d'articles et d'actu */
+.views-view-grid {
+  .col {
+    article {
+      background-color: white;
+      padding: 0;
+      margin-bottom: 30px;
+      .data-after-image {
+        padding: 0 10px 20px 10px;
+        h3 a {
+          color: @nj-red;
+        }
+      }
+    }
+  }
+}
+/* Zone de droite **************************************************/
+.well.region.region-sidebar-second {
+  background-color: transparent;
+  border: 0;
+  .address-right {
+    h3 {
+      color: @nj-red;
+      font-size: 1.6em;
+    }
+  }
+}
+/* Formulaire de contact */
+.contact-message-feedback-form {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 30px;
+  button#edit-preview {
+    display: none;
   }
 }

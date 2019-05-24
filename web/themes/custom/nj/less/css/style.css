@@ -7662,6 +7662,107 @@ h2.baseline {
 .glyphicon-linkedin:hover:before {
   color: #9f9f9f;
 }
+/* Contenu principal */
+.under-main-container {
+  background-color: #ced2d5;
+}
+/* Footer */
+.under-footer {
+  background-color: #01172c;
+  border: 1px solid #01172c;
+  color: white;
+}
+.under-footer ul.menu {
+  margin-top: 10px;
+}
+.under-footer ul.menu li.active-trail a {
+  color: black;
+  background-color: #eeeeee;
+}
+.under-footer ul.menu li.active-trail a:before {
+  color: #c82b45;
+}
+.under-footer ul.menu li a {
+  color: white;
+  padding: 15px;
+}
+.under-footer ul.menu li a:hover {
+  color: black;
+}
+.under-footer ul.menu li a:hover:before {
+  color: #c82b45;
+}
+.under-footer ul.menu li a:before {
+  position: relative;
+  top: 1px;
+  font-family: 'Glyphicons Halflings';
+  line-height: 1;
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1em;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 10px;
+  text-align: center;
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  color: #777777;
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e801";
+  color: white;
+}
+.under-footer .footer {
+  border: 0;
+  margin-top: 0;
+  padding-top: 20px;
+}
+.under-footer .footer h2.block-title {
+  font-size: 1.2em;
+  margin-top: 0;
+  border-bottom: 3px solid #c82b45;
+  padding: 15px;
+  background-color: transparent;
+  color: white;
+  padding-left: 0;
+}
+/* Lises d'articles et d'actu */
+.views-view-grid .col article {
+  background-color: white;
+  padding: 0;
+  margin-bottom: 30px;
+}
+.views-view-grid .col article .data-after-image {
+  padding: 0 10px 20px 10px;
+}
+.views-view-grid .col article .data-after-image h3 a {
+  color: #c82b45;
+}
+/* Zone de droite **************************************************/
+.well.region.region-sidebar-second {
+  background-color: transparent;
+  border: 0;
+}
+.well.region.region-sidebar-second .address-right h3 {
+  color: #c82b45;
+  font-size: 1.6em;
+}
+/* Formulaire de contact */
+.contact-message-feedback-form {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+.contact-message-feedback-form button#edit-preview {
+  display: none;
+}
 #front-blocks {
   background: url(../images/ordi-nj.jpg) no-repeat 50% -150px;
 }
@@ -7744,4 +7845,15 @@ h2.baseline {
   -moz-osx-font-smoothing: grayscale;
   content: "\e808";
   color: #c82b45;
+}
+.path-frontpage .form-group {
+  margin: 0;
+}
+.path-frontpage h2.block-title {
+  color: #c82b45;
+  background-color: white;
+  border-bottom: 3px solid #c82b45;
+  padding: 15px;
+  font-size: 1.2em;
+  margin-top: 0;
 }
