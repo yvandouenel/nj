@@ -160,23 +160,24 @@
       </div>
     </div>
   {% endif %}
-  <div class="main-container {{ container }} js-quickedit-main-content" role="main">
+  <div class="under-main-container">
+    <div class="main-container {{ container }} js-quickedit-main-content" role="main">
 
-    <div
-      class="row">
+      <div
+        class="row">
 
 
-      {# Sidebar First #}
-      {% if page.sidebar_first %}
-        {% block sidebar_first %}
-          <aside class="col-sm-3" role="complementary">
-            {{ page.sidebar_first }}
-          </aside>
-        {% endblock %}
-      {% endif %}
+        {# Sidebar First #}
+        {% if page.sidebar_first %}
+          {% block sidebar_first %}
+            <aside class="col-sm-3" role="complementary">
+              {{ page.sidebar_first }}
+            </aside>
+          {% endblock %}
+        {% endif %}
 
-      {# Content #}
-      {%
+        {# Content #}
+        {%
         set content_classes = [
           page.sidebar_first and page.sidebar_second ? 'col-sm-6',
           page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
@@ -184,45 +185,48 @@
           page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
         ]
       %}
-      <section{{content_attributes.addClass(content_classes)}}>
+        <section{{content_attributes.addClass(content_classes)}}>
 
-        {# Highlighted #}
-        {% if page.highlighted %}
-          {% block highlighted %}
-            <div class="highlighted">{{ page.highlighted }}</div>
+          {# Highlighted #}
+          {% if page.highlighted %}
+            {% block highlighted %}
+              <div class="highlighted">{{ page.highlighted }}</div>
+            {% endblock %}
+          {% endif %}
+
+          {# Help #}
+          {% if page.help %}
+            {% block help %}
+              {{ page.help }}
+            {% endblock %}
+          {% endif %}
+
+          {# Content #}
+          {% block content %}
+            <a id="main-content"></a>
+            {{ page.content }}
+          {% endblock %}
+        </section>
+
+        {# Sidebar Second #}
+        {% if page.sidebar_second %}
+          {% block sidebar_second %}
+            <aside class="col-sm-3" role="complementary">
+              {{ page.sidebar_second }}
+            </aside>
           {% endblock %}
         {% endif %}
-
-        {# Help #}
-        {% if page.help %}
-          {% block help %}
-            {{ page.help }}
-          {% endblock %}
-        {% endif %}
-
-        {# Content #}
-        {% block content %}
-          <a id="main-content"></a>
-          {{ page.content }}
-        {% endblock %}
-      </section>
-
-      {# Sidebar Second #}
-      {% if page.sidebar_second %}
-        {% block sidebar_second %}
-          <aside class="col-sm-3" role="complementary">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endblock %}
-      {% endif %}
+      </div>
     </div>
-  </div>
-{% endblock %}
-
-{% if page.footer %}
-  {% block footer %}
-    <footer class="footer {{ container }}" role="contentinfo">
-      {{ page.footer }}
-    </footer>
   {% endblock %}
-{% endif %}
+</div>
+
+
+<div class="under-footer">
+  <footer class="footer {{ container }}" role="contentinfo">
+    <div class="row">
+      <div class="col-md-6">{{ page.footer_col_1 }}</div>
+      <div class="col-md-6">{{ page.footer_col_2 }}</div>
+    </div>
+  </footer>
+</div>
