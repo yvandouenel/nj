@@ -1,6 +1,6 @@
 # This migration demonstrates a simple import from a JSON file.
 id: actualite
-label: JSON feed of articles
+label: JSON feed of actualités
 migration_group: crealead_d7
 migration_tags:
   - json example
@@ -46,7 +46,11 @@ source:
       name: body
       label: 'Actualite description'
       selector: body
-    
+    -
+      name: imagesrc
+      label: 'Article image src'
+      selector: path/src
+
   # Under 'ids', we identify source fields populated above which will uniquely
   # identify each imported item. The 'type' makes sure the migration map table
   # uses the proper schema type for stored the IDs.
@@ -65,6 +69,7 @@ process:
     default_value: full_html
   body/value: body
   field_newsid: nid
+  field_image_depuis_crealead: imagesrc
   sticky:
     plugin: default_value
     default_value: 0
