@@ -160,6 +160,20 @@
       </div>
     </div>
   {% endif %}
+  {% if page.title_area %}
+    {% block title_area %}
+      <div id="title-area">
+      <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+        {{ page.title_area }}
+        </div>
+        </div>
+      </div>
+
+      </div>
+    {% endblock %}
+  {% endif %}
   <div class="under-main-container">
     <div class="main-container {{ container }} js-quickedit-main-content" role="main">
 
