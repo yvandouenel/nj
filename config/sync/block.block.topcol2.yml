@@ -1,0 +1,31 @@
+uuid: d57a68bf-2d92-445e-b592-86bb11886def
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:6ec0ec09-81e9-4627-9e37-e5ac5b016710'
+  module:
+    - block_content
+    - system
+  theme:
+    - nj
+id: topcol2
+theme: nj
+region: top_col_2
+weight: 0
+provider: null
+plugin: 'block_content:6ec0ec09-81e9-4627-9e37-e5ac5b016710'
+settings:
+  id: 'block_content:6ec0ec09-81e9-4627-9e37-e5ac5b016710'
+  label: 'Colonne 2'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

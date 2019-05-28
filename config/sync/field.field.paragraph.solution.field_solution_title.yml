@@ -1,0 +1,19 @@
+uuid: 62a0face-fd4e-4bc0-902e-ba11e8547416
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_solution_title
+    - paragraphs.paragraphs_type.solution
+id: paragraph.solution.field_solution_title
+field_name: field_solution_title
+entity_type: paragraph
+bundle: solution
+label: 'Titre de la solution'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

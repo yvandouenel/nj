@@ -9,6 +9,7 @@ dependencies:
   module:
     - node
     - user
+    - views_bootstrap
 id: news
 label: Actualités
 module: views
@@ -68,7 +69,16 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: default
+        type: views_bootstrap_grid
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+          alignment: horizontal
+          col_xs: col-12
+          col_sm: col-sm-12
+          col_md: col-md-4
+          col_lg: col-lg-4
       row:
         type: 'entity:node'
         options:

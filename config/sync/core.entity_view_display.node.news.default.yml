@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_image_depuis_crealead
     - field.field.node.news.field_newsid
     - node.type.news
   module:
@@ -21,6 +22,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_image_depuis_crealead:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_newsid:
     weight: 102
     label: above
@@ -32,8 +41,8 @@ content:
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true

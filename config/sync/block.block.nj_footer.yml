@@ -12,8 +12,8 @@ _core:
   default_config_hash: kkISXE1LT2FJEoYnqCrCpeFB-2pmGmMxMklVk7rQcfg
 id: nj_footer
 theme: nj
-region: footer
-weight: -6
+region: footer_col_1
+weight: -8
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

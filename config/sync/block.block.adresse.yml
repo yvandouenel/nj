@@ -1,0 +1,25 @@
+uuid: 99ba25d0-2798-45e2-b916-938e79c27cc6
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:766d1deb-1729-4959-900e-b1c417d44144'
+  module:
+    - block_content
+  theme:
+    - nj
+id: adresse
+theme: nj
+region: footer_col_2
+weight: 0
+provider: null
+plugin: 'block_content:766d1deb-1729-4959-900e-b1c417d44144'
+settings:
+  id: 'block_content:766d1deb-1729-4959-900e-b1c417d44144'
+  label: Adresse
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,31 @@
+uuid: 80c1f548-1c87-47d5-a77a-38904f896b3c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.solutions.field_solution
+    - node.type.solutions
+  module:
+    - entity_reference_revisions
+    - user
+id: node.solutions.default
+targetEntityType: node
+bundle: solutions
+mode: default
+content:
+  field_solution:
+    type: entity_reference_revisions_entity_view
+    weight: 101
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

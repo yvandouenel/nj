@@ -28,4 +28,6 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_bid: true
+  field_subtitle: true
   langcode: true

@@ -1,0 +1,42 @@
+uuid: 1b4aa085-ed77-4370-99bc-5122a61e9a0c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.solution.field_icone
+    - field.field.paragraph.solution.field_solution_body
+    - field.field.paragraph.solution.field_solution_title
+    - paragraphs.paragraphs_type.solution
+  module:
+    - image
+    - text
+id: paragraph.solution.default
+targetEntityType: paragraph
+bundle: solution
+mode: default
+content:
+  field_icone:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_solution_body:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_solution_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

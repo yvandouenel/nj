@@ -1,4 +1,4 @@
-uuid: bd8bc8d9-99b8-47a3-8fde-acec27c3a806
+uuid: 8a2977cf-de2e-410f-8b5b-53d55abc6dc7
 langcode: fr
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - migrate_crealead
 _core:
-  default_config_hash: nLflt5LUBY7R58NWrcoR9NfAIjgoYB-WRj-tn1biz-c
+  default_config_hash: uRHW3jIgyudh4zog7ZZGeCaYB4V-nx69LdfbmpsRRys
 id: brand
 class: null
 field_plugin_method: null
@@ -20,7 +20,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: json
   urls:
-    - 'http://local.crealead.my/export-marques/3333'
+    - 'https://www.crealead.com/export-marques/3333'
   item_selector: brand
   fields:
     -

@@ -1,4 +1,4 @@
-uuid: f445fa12-d03b-40ad-8444-e05b25e0393b
+uuid: dd4c5e28-4b3b-4a26-80d3-f5beb8f067aa
 langcode: fr
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - migrate_crealead
 _core:
-  default_config_hash: cPVDOmKhHJVlDezHvcP8J6KpOQpwezTcs63v48WGbzw
+  default_config_hash: MB0Ffio50TY5MS5ZxEL7mEDN8DacBvWzi_9iNT14xTA
 id: article
 class: null
 field_plugin_method: null
@@ -20,7 +20,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: json
   urls:
-    - 'http://local.crealead.my/export-articles/3333'
+    - 'https://www.crealead.com/export-articles/3333'
   item_selector: article
   fields:
     -
@@ -35,6 +35,10 @@ source:
       name: body
       label: 'Article description'
       selector: body
+    -
+      name: imagesrc
+      label: 'Article image src'
+      selector: path/src
   ids:
     nid:
       type: integer
@@ -48,6 +52,7 @@ process:
     default_value: full_html
   body/value: body
   field_bid: nid
+  field_image_depuis_crealead: imagesrc
   sticky:
     plugin: default_value
     default_value: 0

@@ -1,0 +1,9 @@
+uuid: 3c4a572f-112c-4d3d-a1ec-f2e5166fa50e
+langcode: fr
+status: true
+dependencies: {  }
+id: solution
+label: solution
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

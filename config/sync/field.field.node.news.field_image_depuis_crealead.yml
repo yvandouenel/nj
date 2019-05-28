@@ -1,0 +1,19 @@
+uuid: 3b2e6917-0858-4b22-957b-fd90525c3f69
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_depuis_crealead
+    - node.type.news
+id: node.news.field_image_depuis_crealead
+field_name: field_image_depuis_crealead
+entity_type: node
+bundle: news
+label: 'Image depuis Crealead'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

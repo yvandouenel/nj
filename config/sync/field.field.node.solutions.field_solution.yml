@@ -1,0 +1,31 @@
+uuid: 352eccb3-0c61-476d-99c0-70569c3ab79f
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_solution
+    - node.type.solutions
+    - paragraphs.paragraphs_type.solution
+  module:
+    - entity_reference_revisions
+id: node.solutions.field_solution
+field_name: field_solution
+entity_type: node
+bundle: solutions
+label: Solution
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      solution: solution
+    target_bundles_drag_drop:
+      solution:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

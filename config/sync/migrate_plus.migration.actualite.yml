@@ -1,4 +1,4 @@
-uuid: 5b99238e-d9ac-433c-83b6-3991623931bd
+uuid: f00e7a5d-d35f-40f9-affa-24a18001741a
 langcode: fr
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - migrate_crealead
 _core:
-  default_config_hash: cKNQ7czOWZIPQsieB-c3bIufv57WRdXUq0skO9HJfjg
+  default_config_hash: rBroT1YBp_doWJjnoAM6asXWcD01V8Vs9e9LmR6RA7c
 id: actualite
 class: null
 field_plugin_method: null
@@ -14,13 +14,13 @@ cck_plugin_method: null
 migration_tags:
   - 'json example'
 migration_group: crealead_d7
-label: 'JSON feed of actualites'
+label: 'JSON feed of actualités'
 source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: json
   urls:
-    - 'http://local.crealead.my/export-actualites/3333'
+    - 'https://www.crealead.com/export-actualites/3333'
   item_selector: actualite
   fields:
     -
@@ -35,6 +35,10 @@ source:
       name: body
       label: 'Actualite description'
       selector: body
+    -
+      name: imagesrc
+      label: 'Article image src'
+      selector: path/src
   ids:
     nid:
       type: integer
@@ -48,6 +52,7 @@ process:
     default_value: full_html
   body/value: body
   field_newsid: nid
+  field_image_depuis_crealead: imagesrc
   sticky:
     plugin: default_value
     default_value: 0

@@ -1,25 +1,25 @@
-uuid: 9ab49dc3-20b3-462c-b135-13bf5be1ec65
+uuid: b49fb403-dea1-430d-9881-1433d909df11
 langcode: fr
 status: true
 dependencies:
   content:
-    - 'block_content:basic:b213cdd3-451e-42bb-8d8d-ca5fb41fcb0c'
+    - 'block_content:basic:74bcde19-c76a-4e6a-86fe-5001e8411a58'
   module:
     - block_content
     - system
   theme:
     - nj
-id: contact
+id: adressedroite
 theme: nj
-region: sidebar_first
+region: sidebar_second
 weight: 0
 provider: null
-plugin: 'block_content:b213cdd3-451e-42bb-8d8d-ca5fb41fcb0c'
+plugin: 'block_content:74bcde19-c76a-4e6a-86fe-5001e8411a58'
 settings:
-  id: 'block_content:b213cdd3-451e-42bb-8d8d-ca5fb41fcb0c'
-  label: Contact
+  id: 'block_content:74bcde19-c76a-4e6a-86fe-5001e8411a58'
+  label: 'Adresse droite'
   provider: block_content
-  label_display: visible
+  label_display: '0'
   status: true
   info: ''
   view_mode: full

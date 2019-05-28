@@ -1,0 +1,21 @@
+uuid: f6840142-3d70-4bf7-976b-9c479e1fbc61
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_solution_body
+    - paragraphs.paragraphs_type.solution
+  module:
+    - text
+id: paragraph.solution.field_solution_body
+field_name: field_solution_body
+entity_type: paragraph
+bundle: solution
+label: Description
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

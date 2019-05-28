@@ -11,7 +11,7 @@ _core:
 id: nj_help
 theme: nj
 region: content
-weight: -30
+weight: -8
 provider: null
 plugin: help_block
 settings:
