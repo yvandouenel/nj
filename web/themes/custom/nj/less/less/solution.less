@@ -1,0 +1,51 @@
+.page-node-type-solutions {
+  .under-solution {
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      > [class*="col-"] {
+        margin-bottom: 30px;
+      }
+      #title-area {
+        &:before {
+          background-color: rgba(168, 38, 64, 0.8);
+        }
+      }
+      .custom-solution-div {
+        border-radius: 8px;
+        background-color: white;
+        height: 100%;
+
+        .field--name-field-icone {
+          background-color: #055693;
+          border-radius: 8px 8px 0 0;
+          img {
+            margin: 0 auto;
+          }
+        }
+        h3 {
+          background-color: #055693;
+          color: white;
+          margin: 0;
+          text-align: center;
+          padding: 20px 0 15px 0;
+          font-size: 1.2em;
+        }
+        .field--name-field-solution-body {
+          padding: 20px 40px;
+          ul {
+            li {
+              list-style: none;
+              margin: 10px 0 20px 0;
+              &:before {
+                .glyphicon();
+                content: "\e808";
+                color: @nj-red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

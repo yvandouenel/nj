@@ -7734,10 +7734,17 @@ h2.baseline {
   padding-left: 0;
 }
 /* Lises d'articles et d'actu */
+.views-view-grid .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.views-view-grid .col {
+  margin-bottom: 30px;
+}
 .views-view-grid .col article {
+  height: 100%;
   background-color: white;
   padding: 0;
-  margin-bottom: 30px;
 }
 .views-view-grid .col article .data-after-image {
   padding: 0 10px 20px 10px;
@@ -7753,6 +7760,40 @@ h2.baseline {
 .well.region.region-sidebar-second .address-right h3 {
   color: #c82b45;
   font-size: 1.6em;
+}
+/* Titre de page */
+.path-actualites  #title-area,
+.path-articles  #title-area,
+.page-node-type-page  #title-area,
+.page-node-type-solutions  #title-area,
+.path-contact  #title-area {
+  padding-top: 20px;
+  background: url(/themes/custom/nj/less/images/ordi-nj.jpg) no-repeat 50% -450px;
+  position: relative;
+}
+.path-actualites  #title-area:before,
+.path-articles  #title-area:before,
+.page-node-type-page  #title-area:before,
+.page-node-type-solutions  #title-area:before,
+.path-contact  #title-area:before {
+  display: block;
+  content: "";
+  clear: both;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.path-actualites  #title-area h2.page-header,
+.path-articles  #title-area h2.page-header,
+.page-node-type-page  #title-area h2.page-header,
+.page-node-type-solutions  #title-area h2.page-header,
+.path-contact  #title-area h2.page-header {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  padding: 6px 20px;
+  border: 0;
 }
 /* Formulaire de contact */
 .contact-message-feedback-form {
@@ -7856,4 +7897,80 @@ h2.baseline {
   padding: 15px;
   font-size: 1.2em;
   margin-top: 0;
+}
+.path-actualites  #title-area:before {
+  background-color: rgba(0, 74, 132, 0.8);
+}
+.path-articles  #title-area:before {
+  background-color: rgba(163, 37, 61, 0.8);
+}
+.page-node-type-page #title-area:before {
+  background-color: rgba(168, 38, 64, 0.8);
+}
+.page-node-type-solutions .under-solution .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.page-node-type-solutions .under-solution .row > [class*="col-"] {
+  margin-bottom: 30px;
+}
+.page-node-type-solutions .under-solution .row #title-area:before {
+  background-color: rgba(168, 38, 64, 0.8);
+}
+.page-node-type-solutions .under-solution .row .custom-solution-div {
+  border-radius: 8px;
+  background-color: white;
+  height: 100%;
+}
+.page-node-type-solutions .under-solution .row .custom-solution-div .field--name-field-icone {
+  background-color: #055693;
+  border-radius: 8px 8px 0 0;
+}
+.page-node-type-solutions .under-solution .row .custom-solution-div .field--name-field-icone img {
+  margin: 0 auto;
+}
+.page-node-type-solutions .under-solution .row .custom-solution-div h3 {
+  background-color: #055693;
+  color: white;
+  margin: 0;
+  text-align: center;
+  padding: 20px 0 15px 0;
+  font-size: 1.2em;
+}
+.page-node-type-solutions .under-solution .row .custom-solution-div .field--name-field-solution-body {
+  padding: 20px 40px;
+}
+.page-node-type-solutions .under-solution .row .custom-solution-div .field--name-field-solution-body ul li {
+  list-style: none;
+  margin: 10px 0 20px 0;
+}
+.page-node-type-solutions .under-solution .row .custom-solution-div .field--name-field-solution-body ul li:before {
+  position: relative;
+  top: 1px;
+  font-family: 'Glyphicons Halflings';
+  line-height: 1;
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1em;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 10px;
+  text-align: center;
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  color: #777777;
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e808";
+  color: #c82b45;
+}
+.path-contact .contact-form {
+  margin-top: 30px;
 }
