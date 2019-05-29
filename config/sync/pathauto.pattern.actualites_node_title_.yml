@@ -1,0 +1,22 @@
+uuid: 160854bf-d64b-4bef-9332-d2a639d7d2e8
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+id: actualites_node_title_
+label: actu
+type: 'canonical_entities:node'
+pattern: '/actualites/[node:title]'
+selection_criteria:
+  edc0a55b-56ba-47af-bccc-29dc37411828:
+    id: node_type
+    bundles:
+      news: news
+    negate: false
+    context_mapping:
+      node: node
+    uuid: edc0a55b-56ba-47af-bccc-29dc37411828
+selection_logic: and
+weight: 0
+relationships: {  }

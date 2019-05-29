@@ -1,9 +1,9 @@
-uuid: 46b662db-7836-4de2-a219-00ac7794ccf7
+uuid: a8181a25-67b6-40bf-a438-139bc5076014
 langcode: fr
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.full
+    - core.entity_view_mode.node.petit
     - field.field.node.news.body
     - field.field.node.news.field_image_depuis_crealead
     - field.field.node.news.field_newsid
@@ -11,16 +11,17 @@ dependencies:
   module:
     - text
     - user
-id: node.news.full
+id: node.news.petit
 targetEntityType: node
 bundle: news
-mode: full
+mode: petit
 content:
   body:
     label: hidden
-    type: text_default
-    weight: 2
-    settings: {  }
+    type: text_trimmed
+    weight: 1
+    settings:
+      trim_length: 60
     third_party_settings: {  }
     region: content
   field_image_depuis_crealead:
@@ -31,11 +32,7 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  links:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_newsid: true
   langcode: true
+  links: true

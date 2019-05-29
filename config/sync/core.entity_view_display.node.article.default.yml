@@ -39,7 +39,7 @@ content:
     label: hidden
   field_image_depuis_crealead:
     weight: 0
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }

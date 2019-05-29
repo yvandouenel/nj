@@ -1,0 +1,16 @@
+uuid: 2882b9b4-6676-4b3d-95df-589a980defe0
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - user
+  module:
+    - pathauto
+_core:
+  default_config_hash: x_ok_ZsfA4Xk4B_hVW3O4-3PcNoK57nXLz_Dlletidg
+id: pathauto_update_alias_user
+label: 'Mettre à jour l''alias d''URL'
+type: user
+plugin: pathauto_update_alias
+configuration: {  }

@@ -1,0 +1,33 @@
+uuid: 860c223b-7efd-4cca-bcd9-231b9c266ca2
+langcode: fr
+status: true
+dependencies:
+  config:
+    - views.view.frontpage
+  module:
+    - ctools
+    - views
+  theme:
+    - nj
+id: views_block__frontpage_block_news_small
+theme: nj
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:frontpage-block_news_small'
+settings:
+  id: 'views_block:frontpage-block_news_small'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+      news: news
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

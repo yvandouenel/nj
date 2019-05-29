@@ -1,0 +1,33 @@
+uuid: 54923a30-d706-4434-b748-df715bca45ed
+langcode: fr
+status: true
+dependencies:
+  config:
+    - views.view.frontpage
+  module:
+    - ctools
+    - views
+  theme:
+    - nj
+id: views_block__frontpage_block_articles_petits
+theme: nj
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:frontpage-block_articles_petits'
+settings:
+  id: 'views_block:frontpage-block_articles_petits'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+      news: news
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

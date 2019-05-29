@@ -1,0 +1,10 @@
+uuid: 93951126-ac87-4915-98b5-ea3e787b3b2b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+id: node.petit
+label: Petit
+targetEntityType: node
+cache: true
