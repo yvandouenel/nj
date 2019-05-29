@@ -150,7 +150,7 @@ h2.baseline {
             position: relative;
             display: block;
             padding: 5px 30px !important;
-            &.is-active {
+            &.active-trail {
               /* a.is-active */
               @media screen and (min-width: @screen-md) {
                 border: 1px solid @nj-red;
@@ -290,6 +290,46 @@ button.navbar-toggle {
     }
   }
 }
+
+#block-views-block-frontpage-block-articles-petits,
+#block-views-block-frontpage-block-news-small {
+  h2.block-title {
+    font-size: 1.6em;
+    color: darken(@nj-gray, 30%);
+    border-bottom: 1px solid darken(@nj-gray, 30%);
+    margin-top: 0;
+    margin-bottom: 30px;
+    display: table;
+  }
+  .small-list {
+    display: flex;
+    border-bottom: 1px solid @nj-gray;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    @media screen and (min-width: @screen-md) {
+      .colonne1 {
+        max-width: 20%;
+        margin-right: 20px;
+      }
+      .colonne2 {
+        flex-grow: 2;
+        h3 {
+          font-size: 1em;
+          color: @nj-gray;
+          margin: 0 0 10px 0;
+          a {
+            font-weight: bold;
+            color: darken(@nj-gray, 30%);
+          }
+        }
+        p {
+          color: @nj-gray;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
 /* Zone de droite **************************************************/
 .well.region.region-sidebar-second {
   background-color: transparent;
@@ -306,7 +346,9 @@ button.navbar-toggle {
 .path-articles,
 .page-node-type-page,
 .page-node-type-solutions,
-.path-contact {
+.path-contact,
+.page-node-type-news,
+.page-node-type-article {
     #title-area {
     padding-top: 20px;
     background: url(/themes/custom/nj/less/images/ordi-nj.jpg) no-repeat 50% -450px;
@@ -322,7 +364,7 @@ button.navbar-toggle {
     }
     h2.page-header {
       color: white;
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0, 0, 0, 0.5);
       display: table;
       padding: 6px 20px;
       border: 0;
